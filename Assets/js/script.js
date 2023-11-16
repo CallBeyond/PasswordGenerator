@@ -2,7 +2,7 @@ var generateBtn = document.querySelector("#generate");
 
 function writePassword() {
   function generatePassword() {
-    // Promps the user to enter what desired length they want of their Password
+    // Creates a prompt that asks the user what length they want the Password to be
     var length = parseInt(prompt("Enter the length of your password (between 8 to 128 characters!): "));
 
     // Converts the prompt to int and checks the length
@@ -18,28 +18,28 @@ function writePassword() {
     var includeNumbers = confirm("Include numeric characters?");
     var includeSpecial = confirm("Include special characters?");
 
-    // Double checks to make sure that at least one of the criteria's are included in the PW generation
-    // if its incorrect it'll give return with nothing
+    // Double checks to make sure that at least one of the criteria's were accepted in the Password generation
+    // If no criteria was accepted, they'll be given an "error" message and must accept at least one criteria
     if (!includeLowercase && !includeUppercase && !includeNumbers && !includeSpecial) {
       alert("Please select at least one character type.");
       return "";
     }
 
-    // defining the characters in the asked criteria
+    // Defining the characters in the asked criteria
     var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
     var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numberChars = "0123456789";
     var specialChars = "!@#$%^&*()-_=+[{]};:|,<.>/?";
 
     // Combining all the criteria that was accepted by the user into availableChars
-    // basically doing it this way so that I can randomize the text in the next function
+    // Doing it this way combines all the accepted criteria into one variable that can be randomized
     var availableChars = "";
     if (includeLowercase) availableChars += lowercaseChars;
     if (includeUppercase) availableChars += uppercaseChars;
     if (includeNumbers) availableChars += numberChars;
     if (includeSpecial) availableChars += specialChars;
 
-    // Generating the password using available characters from availableChars
+    // Generates a password using the accepted critera from availableChars
     var generatedPassword = "";
     for (var i = 0; i < length; i++) {
       var randomPassword = Math.floor(Math.random() * availableChars.length);
