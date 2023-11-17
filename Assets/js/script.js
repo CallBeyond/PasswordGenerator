@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   function generatePassword() {
     // Creates a prompt that asks the user what length they want the Password to be
-    var length = parseInt(prompt("Enter the length of your password (between 8 to 128 characters!): "));
+    var length = parseInt(prompt("How many characters would you like your password to be? (between 8 to 128 characters!): "));
 
     // Converts the prompt to int and checks the length
     // if its incorrect it'll give return with nothing and give them a prompt to enter a valid length
